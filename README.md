@@ -1,10 +1,21 @@
 # Agent Gateway
 
 ## Steps to run the docker file
+
 1. Create a data folder inside the root folder
-3. docker build /
-    -t <container-name> .
-2. docker run /
+
+2. Build the docker file 
+
+```  
+    docker build /
+    -t <container-name> . 
+```
+
+3. Run the docker file 
+
+```
+    docker run /
     -p 5000:5000 /
-    -v <your-absolute-path-to-data-folder>:/validateAgentOutputAPI/data 
+    -v <your-absolute-path-to-data-folder>:/server/data
     <container-name>
+```
