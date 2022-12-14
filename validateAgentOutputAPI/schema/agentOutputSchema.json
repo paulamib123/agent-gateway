@@ -1,0 +1,72 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Operating System Information",
+    "type": "object",
+    "properties": {
+      "OperatingSystem": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The name of the operating system"
+      },
+      "Release": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The release number of the operating system"
+      },
+      "Version": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The version number of the operating system"
+      },
+      "Machine": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The type of machine on which the operating system is installed"
+      },
+      "Processor": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The type of processor on which the operating system is installed"
+      },
+      "Hostname": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The hostname of the machine on which the operating system is installed"
+      },
+      "IPAddr": {
+        "type": "string",
+        "description": "The IP address of the machine on which the operating system is installed",
+        "pattern": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+      },
+      "MAC": {
+        "type": "string",
+        "description": "The MAC address of the machine on which the operating system is installed",
+        "pattern": "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"
+      },
+      "InstalledSoftware": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "A list of software installed on the machine"
+      },
+      "RunningProcesses": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "A list of software installed on the machine"
+      },
+      "FirewallStatus": {
+        "type": "string",
+        "description": "The USBStatus of the machine on which the operating system is installed"
+      },
+      "USBStatus": {
+        "type": "string",
+        "enum": ["Enabled", "Disabled"],
+        "description": "The USBStatus of the machine on which the operating system is installed"
+      }
+    },
+    "required": ["OperatingSystem", "Release", "Version", "Machine", "Processor", "Hostname", "IPAddr", "MAC"]
+}
+  
