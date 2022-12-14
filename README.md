@@ -16,6 +16,6 @@
 ```
     docker run /
     -p 5000:5000 /
-    -v <your-absolute-path-to-data-folder>:/server/data
+    -v <your-absolute-path-to-data-folder>:/server/data /
     <container-name>
 ```
