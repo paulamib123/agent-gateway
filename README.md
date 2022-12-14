@@ -4,14 +4,16 @@
 
 1. Create a data folder inside the root folder
 
-2. Build the docker file 
+2. Run the commands inside the root folder.
+
+3. Build the docker file 
 
 ```  
     docker build /
     -t <container-name> . 
 ```
 
-3. Run the docker file 
+4. Run the docker file 
 
 ```
     docker run /
