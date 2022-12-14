@@ -1,2 +1,3 @@
-.dockerignore
+
 /data
+.DS_Store
