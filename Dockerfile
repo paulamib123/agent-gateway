@@ -12,6 +12,6 @@ WORKDIR /server
 
 RUN pip3 install -r requirements.txt
 
-WORKDIR /server/validateAgentOutputAPI/api
+WORKDIR /server/src/api
 
 CMD ["python3", "app.py"]

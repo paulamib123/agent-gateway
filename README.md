@@ -1,10 +1,25 @@
 # Agent Gateway
 
-## Steps to run the docker file
+## Steps to run the Agent-Gateway
 
-1. Create a data folder inside the root folder
+### • Creating the .env file
 
-2. Run the commands inside the root folder.
+1. Create a .env file in the root folder
+
+2. Mention the following variables in .env file
+
+```
+    DATABASE_USERNAME=<database-username>
+    DATABSE_PASSWORD=<database-password>
+    DATABSE_HOST=<database-host>
+    DATABSE_PORT=<database-host>
+    DATABASE_NAME=<database-name>
+```
+
+### • Running the DockerFile
+1. Create a data folder file inside the root folder
+
+2. Run the following docker commands inside the root folder.
 
 3. Build the docker file 
 
@@ -19,5 +34,6 @@
     docker run /
     -p 5000:5000 /
     -v <your-absolute-path-to-data-folder>:/server/data /
+    --env-file <your-absolute-path-to-.env-file>
     <container-name>
 ```

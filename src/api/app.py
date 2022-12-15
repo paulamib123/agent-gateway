@@ -1,11 +1,24 @@
 from flask import Flask, request, make_response, jsonify
-from validateAgentOutputAPI.services.validateAgentOutputService import validateAgentOutput, writeJSON
+from flask_sqlalchemy import SQLAlchemy
+
+from src.services.validateAgentOutputService import *
+from src.config.dbConfig import uri
+
 
 REQUEST_SUCCESS_CODE = 200
 SERVER_ERROR_CODE = 500
 SERVER_ERROR_MESSAGE = "Server Error"
 
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = uri
+
+db = SQLAlchemy()
+
+db.init_app(app)
+
+message = "\nConnected to database\n"
+print(message)
 
 @app.route("/", methods = ["POST"])
 def validateAPI():
@@ -14,12 +27,12 @@ def validateAPI():
         message = validateAgentOutput(data)
     
         if message[1]:
-            writeJSON(data)
+            postAgentLog(data, db)
             
         return jsonify(message[0]), REQUEST_SUCCESS_CODE
     except:
-        error = { "message" : SERVER_ERROR_MESSAGE }
-        return jsonify(error), SERVER_ERROR_CODE
+         error = { "message" : SERVER_ERROR_MESSAGE }
+         return jsonify(error), SERVER_ERROR_CODE
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
