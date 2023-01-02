@@ -17,7 +17,7 @@
 ```
 
 ### • Running the DockerFile
-1. Create a data folder file inside the root folder
+1. Create a data folder and a logs folder inside the root folder
 
 2. Run the following docker commands inside the root folder.
 
@@ -34,6 +34,7 @@
     docker run /
     -p 5000:5000 /
     -v <your-absolute-path-to-data-folder>:/server/data /
+    -v <your-absolute-path-to-logs-folder>:/server/logs /
     --env-file <your-absolute-path-to-.env-file>
     <container-name>
 ```
