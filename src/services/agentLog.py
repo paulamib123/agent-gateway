@@ -55,9 +55,9 @@ def postAgentLogToDB(deviceData, Session):
     session = Session()
 
     session.add(logDBObject)
-    logging.info("Added Agent Log with IP {} to database".format(agentLog.ip4))
+    logging.info("Added Agent Log with MAC Address {} to database".format(agentLog.mac))
 
     session.commit()
-    logging.info("Committed Agent Log with IP {} to database".format(agentLog.ip4))
+    logging.info("Committed Agent Log with MAC Address {} to database".format(agentLog.mac))
 
     
