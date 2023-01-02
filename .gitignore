@@ -1,4 +1,8 @@
-
+**/__pycache__
 /data
 .DS_Store
 .env
+.pytest_cache
+/instance
+/src/**/__pycache__
+/src/__pycache__

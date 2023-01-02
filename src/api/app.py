@@ -1,38 +1,27 @@
-from flask import Flask, request, make_response, jsonify
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
+import logging
 
-from src.services.validateAgentOutputService import *
 from src.config.dbConfig import uri
+from src.routes.routes import registerRoutes
 
 
-REQUEST_SUCCESS_CODE = 200
-SERVER_ERROR_CODE = 500
-SERVER_ERROR_MESSAGE = "Server Error"
+engine = create_engine(uri, pool_size=10)
 
-app = Flask(__name__)
+logging.info("Connected to Database")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = uri
+Session = sessionmaker(bind = engine)
 
-db = SQLAlchemy()
+def appConfig():
+    app = Flask(__name__)
+    return app
 
-db.init_app(app)
+app = appConfig()
+registerRoutes(app, Session)
 
-message = "\nConnected to database\n"
-print(message)
-
-@app.route("/", methods = ["POST"])
-def validateAPI():
-    try:
-        data = request.json
-        message = validateAgentOutput(data)
+if __name__ == "__main__": 
+    host = "0.0.0.0"
+    port = 5000   
+    app.run(host=host, port=port, debug=True)
     
-        if message[1]:
-            postAgentLog(data, db)
-            
-        return jsonify(message[0]), REQUEST_SUCCESS_CODE
-    except:
-         error = { "message" : SERVER_ERROR_MESSAGE }
-         return jsonify(error), SERVER_ERROR_CODE
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)

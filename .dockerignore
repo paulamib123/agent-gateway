@@ -1,2 +1,7 @@
 /data
 .env
+**/__pycache__
+.pytest_cache
+/instance
+/src/**/__pycache__
+/src/__pycache__

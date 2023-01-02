@@ -1,6 +1,7 @@
 import os
 import sys
 from dotenv import load_dotenv
+import logging
 
 load_dotenv()
 
@@ -25,7 +26,7 @@ def validateCredentials(credentials):
     for key, value in credentials.items():
         if value is None:
             flag = True
-            print(f'{key} variable is not defined\n')
+            logging.error('enviornment variable {} is not defined'.format(key))
     
     if flag:
         sys.exit("Exited")
