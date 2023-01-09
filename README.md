@@ -34,7 +34,7 @@ DATABASE_NAME=<database-name>
 
 ```
     docker run /
-    -p 5000:5000 /
+    -p <server-port>:<server-port> /
     -v <your-absolute-path-to-logs-folder>:/server/logs /
     --env-file <your-absolute-path-to-.env-file>
     <container-name>
