@@ -9,15 +9,17 @@
 2. Mention the following variables in .env file
 
 ```
-    DATABASE_USERNAME=<database-username>
-    DATABSE_PASSWORD=<database-password>
-    DATABSE_HOST=<database-host>
-    DATABSE_PORT=<database-host>
-    DATABASE_NAME=<database-name>
+SERVER_HOST=<flask-server-host>
+SERVER_PORT=<flask-server-port>
+DATABASE_USERNAME=<database-username>
+DATABSE_PASSWORD=<database-password>
+DATABSE_HOST=<database-host>
+DATABSE_PORT=<database-host>
+DATABASE_NAME=<database-name>
 ```
 
 ### • Running the DockerFile
-1. Create a data folder and a logs folder inside the root folder
+1. Create a logs folder inside the root folder
 
 2. Run the following docker commands inside the root folder.
 
@@ -33,7 +35,6 @@
 ```
     docker run /
     -p 5000:5000 /
-    -v <your-absolute-path-to-data-folder>:/server/data /
     -v <your-absolute-path-to-logs-folder>:/server/logs /
     --env-file <your-absolute-path-to-.env-file>
     <container-name>

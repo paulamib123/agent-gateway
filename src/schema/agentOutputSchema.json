@@ -43,27 +43,29 @@
         "description": "The MAC address of the machine on which the operating system is installed",
         "pattern": "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"
       },
-      "InstalledSoftware": {
+      "PotentialyUnwantedSoftware": {
         "type": "array",
         "items": {
           "type": "string"
         },
-        "description": "A list of software installed on the machine"
+        "description": "A list of potentially unwanted softwares installed on the machine"
       },
       "RunningProcesses": {
         "type": "array",
         "items": {
           "type": "string"
         },
-        "description": "A list of software installed on the machine"
+        "description": "A list of processes running on the machine"
       },
       "FirewallStatus": {
         "type": "string",
-        "description": "The USBStatus of the machine on which the operating system is installed"
+        "description": "The Firewall Status of the machine on which the operating system is installed"
       },
       "USBStatus": {
-        "type": "string",
-        "enum": ["Enabled", "Disabled"],
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
         "description": "The USBStatus of the machine on which the operating system is installed"
       }
     },

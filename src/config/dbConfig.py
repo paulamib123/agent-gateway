@@ -15,7 +15,11 @@ credentials = {
     "port" :
         os.getenv("DATABSE_PORT"),
     "database" :
-        os.getenv("DATABASE_NAME")
+        os.getenv("DATABASE_NAME"),
+    "serverHost" : 
+        os.getenv("SERVER_HOST"),
+    "serverPort" : 
+        os.getenv("SERVER_PORT")
 }
 
 

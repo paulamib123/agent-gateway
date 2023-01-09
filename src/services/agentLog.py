@@ -14,7 +14,7 @@ class AgentLog():
         self.hostname: str = log.get('Hostname')
         self.ip4: str = log.get('IPAddr')
         self.mac: str = log.get('MAC')
-        self.installedSoftware: List[str] = self.setEmptyToNull('InstalledSoftware', log)
+        self.potentiallyUnwantedSoftwares: List[str] = self.setEmptyToNull('PotentialyUnwantedSoftware', log)
         self.runningProcesses: List[str] = self.setEmptyToNull('RunningProcesses', log)
         self.firewallStatus: str = self.setEmptyToNull('FirewallStatus', log)
         self.usbStatus: str = self.setEmptyToNull('USBStatus', log)
@@ -34,7 +34,7 @@ class AgentLog():
             hostname = self.hostname,
             ip4 = self.ip4,
             mac = self.mac,
-            installed_software = self.installedSoftware,
+            potentially_unwanted_softwares = self.potentiallyUnwantedSoftwares,
             running_process = self.runningProcesses,
             firewall_status = self.firewallStatus,
             usb_status = self.usbStatus,
@@ -47,7 +47,6 @@ class AgentLog():
 
 
 def postAgentLogToDB(deviceData, Session):
-
     agentLog = AgentLog(deviceData)
 
     logDBObject = agentLog.createDBObject(deviceData)
@@ -59,5 +58,6 @@ def postAgentLogToDB(deviceData, Session):
 
     session.commit()
     logging.info("Committed Agent Log with MAC Address {} to database".format(agentLog.mac))
+
 
     

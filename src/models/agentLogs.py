@@ -13,7 +13,7 @@ class AgentLogs(db.Model):
     ip4 = db.Column(db.Text)
     ip6 = db.Column(db.Text)
     mac = db.Column(db.Text)
-    installed_software = db.Column(db.Text)
+    potentially_unwanted_softwares = db.Column(db.Text)
     running_process = db.Column(db.Text)
     firewall_status = db.Column(db.Text)
     usb_status = db.Column(db.Text)

@@ -5,6 +5,7 @@ import logging
 
 from src.config.dbConfig import uri
 from src.routes.routes import registerRoutes
+from src.config.dbConfig import credentials
 
 
 engine = create_engine(uri, pool_size=10)
@@ -17,11 +18,12 @@ def appConfig():
     app = Flask(__name__)
     return app
 
+
 app = appConfig()
 registerRoutes(app, Session)
 
 if __name__ == "__main__": 
-    host = "0.0.0.0"
-    port = 5000   
+    host = credentials["serverHost"]
+    port = int(credentials["serverPort"]) 
     app.run(host=host, port=port, debug=True)
     
