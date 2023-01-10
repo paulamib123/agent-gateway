@@ -16,10 +16,10 @@ credentials = {
         os.getenv("DATABSE_PORT"),
     "database" :
         os.getenv("DATABASE_NAME"),
-    "serverHost" : 
-        os.getenv("SERVER_HOST"),
-    "serverPort" : 
-        os.getenv("SERVER_PORT")
+    "flaskServerHost" : 
+        os.getenv("FLASK_SERVER_HOST"),
+    "flaskServerPort" : 
+        os.getenv("FLASK_SERVER_PORT")
 }
 
 

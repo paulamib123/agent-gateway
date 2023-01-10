@@ -3,9 +3,9 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 import logging
 
-from src.config.dbConfig import uri
+from src.config.configs import uri
 from src.routes.routes import registerRoutes
-from src.config.dbConfig import credentials
+from src.config.configs import credentials
 
 
 engine = create_engine(uri, pool_size=10)
@@ -23,7 +23,7 @@ app = appConfig()
 registerRoutes(app, Session)
 
 if __name__ == "__main__": 
-    host = credentials["serverHost"]
-    port = int(credentials["serverPort"]) 
-    app.run(host=host, port=port, debug=True)
+    host = credentials["flaskServerHost"]
+    port = int(credentials["flaskServerPort"]) 
+    app.run(host=host, port=port, debug=False)
     

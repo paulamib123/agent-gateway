@@ -9,8 +9,8 @@
 2. Mention the following variables in .env file
 
 ```
-SERVER_HOST=<flask-server-host>
-SERVER_PORT=<flask-server-port>
+FLASK_SERVER_HOST=<flask-server-host>
+FLASK_SERVER_PORT=<flask-server-port>
 DATABASE_USERNAME=<database-username>
 DATABSE_PASSWORD=<database-password>
 DATABSE_HOST=<database-host>
